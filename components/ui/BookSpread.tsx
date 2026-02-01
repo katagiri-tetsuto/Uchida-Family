@@ -22,7 +22,7 @@ export default function BookSpread({
       className={`relative w-full mx-auto flex flex-col items-center justify-center ${className}`}
     >
       {/* 黒い外枠（表紙） */}
-      <div className="relative w-full aspect-[1.4/1] bg-[#2a2a2a] rounded-[6px] pl-4 pr-4 py-2 md:pl-8 md:pr-8 md:py-3 shadow-2xl flex items-center">
+      <div className="relative w-full aspect-[1.7/1] bg-[#2a2a2a] rounded-[6px] pl-4 pr-4 py-2 md:pl-8 md:pr-8 md:py-3 shadow-2xl flex items-center">
         {/* 左側の厚み（小口） */}
         <div className="absolute top-[8px] bottom-[8px] md:top-[12px] md:bottom-[12px] left-[6px] md:left-[10px] w-[10px] md:w-[22px] bg-[#e6ddd0] rounded-l-[3px] border-l border-y border-gray-400/30 z-0">
           <div className="w-full h-full opacity-40 bg-[repeating-linear-gradient(180deg,transparent,transparent_1px,rgba(0,0,0,0.08)_1px,rgba(0,0,0,0.08)_2px)] mix-blend-multiply" />
