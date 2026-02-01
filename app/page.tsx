@@ -17,17 +17,61 @@ export default function Home() {
       setIsReady(true);
     });
 
+    // 慣性スクロール用の変数
+    let targetScrollLeft = 0;
+    let currentScrollLeft = 0;
+    let animationId: number | null = null;
+    const ease = 0.08; // イージング係数（小さいほど滑らか）
+    const speedMultiplier = 0.5; // スクロール速度（小さいほど遅い）
+
+    // 滑らかなアニメーション
+    const animate = () => {
+      const diff = targetScrollLeft - currentScrollLeft;
+
+      // 差が小さくなったらアニメーション停止
+      if (Math.abs(diff) < 0.5) {
+        currentScrollLeft = targetScrollLeft;
+        container.scrollLeft = currentScrollLeft;
+        animationId = null;
+        return;
+      }
+
+      // イージングを適用
+      currentScrollLeft += diff * ease;
+      container.scrollLeft = currentScrollLeft;
+      animationId = requestAnimationFrame(animate);
+    };
+
     // ホイールで横スクロール（下に回す → 左にスクロール）
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
+
+      // 初回または停止中は現在位置を同期
+      if (animationId === null) {
+        currentScrollLeft = container.scrollLeft;
+        targetScrollLeft = currentScrollLeft;
+      }
+
       // deltaYが正（下スクロール）→ scrollLeftを減らす（左に移動）
-      container.scrollLeft -= e.deltaY * 2;
+      targetScrollLeft -= e.deltaY * speedMultiplier;
+
+      // 範囲制限
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      targetScrollLeft = Math.max(0, Math.min(targetScrollLeft, maxScroll));
+
+      // アニメーション開始
+      if (animationId === null) {
+        animationId = requestAnimationFrame(animate);
+      }
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
       container.removeEventListener("wheel", handleWheel);
+      if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+      }
     };
   }, []);
 
