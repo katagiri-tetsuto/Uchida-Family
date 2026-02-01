@@ -21,8 +21,8 @@ export default function Home() {
     let targetScrollLeft = 0;
     let currentScrollLeft = 0;
     let animationId: number | null = null;
-    const ease = 0.08; // イージング係数（小さいほど滑らか）
-    const speedMultiplier = 0.5; // スクロール速度（小さいほど遅い）
+    const ease = 0.12; // イージング係数（大きいほど速く追従）
+    const speedMultiplier = 0.8; // スクロール速度（大きいほど速い）
 
     // 滑らかなアニメーション
     const animate = () => {
