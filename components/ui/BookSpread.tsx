@@ -19,7 +19,7 @@ export default function BookSpread({
 }: BookSpreadProps) {
   return (
     <div
-      className={`relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center p-4 md:p-8 ${className}`}
+      className={`relative w-full mx-auto flex flex-col items-center justify-center ${className}`}
     >
       {/* 黒い外枠（表紙） */}
       <div className="relative w-full aspect-[1.4/1] bg-[#2a2a2a] rounded-[6px] pl-4 pr-4 py-2 md:pl-8 md:pr-8 md:py-3 shadow-2xl flex items-center">
