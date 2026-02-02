@@ -80,7 +80,7 @@ export default function Home() {
       {/* 横スクロールコンテナ */}
       <div
         ref={scrollContainerRef}
-        className="flex items-center gap-32 overflow-x-scroll overflow-y-hidden w-full h-screen px-16 scrollbar-hide"
+        className="flex items-center gap-80 overflow-x-scroll overflow-y-hidden w-full h-screen px-16 scrollbar-hide"
         style={{ opacity: isReady ? 1 : 0 }}
       >
         {/* 3つの本を並べる */}
