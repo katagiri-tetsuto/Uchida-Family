@@ -83,10 +83,92 @@ export default function Home() {
         className="flex items-center gap-80 overflow-x-scroll overflow-y-hidden w-full h-screen px-16 scrollbar-hide"
         style={{ opacity: isReady ? 1 : 0 }}
       >
-        {/* 3つの本を並べる */}
-        {[1, 2, 3].map((num) => (
+        {/* 3つの本を並べる - 1つ目を自己紹介に変更 */}
+        <div className="flex-shrink-0 w-[min(95vw,90vh*1.7)]">
+          <BookSpread
+            leftPage={
+              <div className="h-full flex flex-col items-center justify-center p-4">
+                {/* 写真風のデザイン */}
+                <div className="bg-white p-3 shadow-lg rotate-[-2deg] transform transition-transform hover:scale-105 duration-500 hover:rotate-0">
+                  <div className="w-48 h-64 md:w-64 md:h-80 bg-stone-200 relative overflow-hidden flex items-center justify-center">
+                    {/* 写真プレースホルダー */}
+                    <div className="absolute inset-0 bg-neutral-200 flex items-center justify-center text-neutral-400">
+                      <span className="text-4xl font-thin tracking-widest opacity-50">
+                        PHOTO
+                      </span>
+                    </div>
+                    {/* 画像がある場合はここに <Image /> を配置 */}
+                  </div>
+                </div>
+
+                <div className="mt-8 text-center space-y-2 font-serif">
+                  <h3 className="text-xl text-gray-800 tracking-widest border-b border-gray-400 pb-1">
+                    内田 太郎
+                  </h3>
+                  <p className="text-xs text-gray-500 tracking-wider">
+                    Taro Uchida / Designer
+                  </p>
+                </div>
+              </div>
+            }
+            rightPage={
+              <div className="h-full flex flex-col justify-center p-2 md:p-6">
+                <div className="mb-8 text-center">
+                  <h2 className="text-2xl font-serif text-gray-800 tracking-widest mb-2">
+                    ご挨拶
+                  </h2>
+                  <div className="w-8 h-px bg-gray-400 mx-auto"></div>
+                </div>
+
+                <div className="space-y-6 text-sm md:text-base leading-relaxed font-serif text-gray-700">
+                  <p>
+                    はじめまして。内田と申します。
+                    <br />
+                    この本をお手に取っていただき、ありがとうございます。
+                  </p>
+                  <p>
+                    私は普段、デジタルプロダクトのデザインを中心に活動していますが、
+                    温かみのあるアナログな表現も大好きです。
+                    このポートフォリオでは、そんな私の「好き」を詰め込んだ
+                    世界観を表現してみました。
+                  </p>
+                  <p>
+                    休日はカメラを持って散歩に出かけたり、
+                    お気に入りのカフェで読書をして過ごしています。
+                    日常のふとした瞬間に隠れている「美しさ」を見つけることが、
+                    私のデザインのインスピレーションの源です。
+                  </p>
+                  <p>どうぞ、ごゆっくりご覧ください。</p>
+                </div>
+
+                <div className="mt-auto pt-8 flex justify-end">
+                  {/* サイン風 */}
+                  <span className="font-serif italic text-gray-500 text-lg">
+                    T.Uchida
+                  </span>
+                </div>
+              </div>
+            }
+          />
+        </div>
+
+        {/* 残りの本（プレースホルダーとしてシンプルに） */}
+        {[2, 3].map((num) => (
           <div key={num} className="flex-shrink-0 w-[min(95vw,90vh*1.7)]">
-            <BookSpread />
+            <BookSpread
+              leftPage={
+                <div className="h-full flex items-center justify-center">
+                  <span className="text-gray-300 font-serif text-4xl italic">
+                    Vol. {num}
+                  </span>
+                </div>
+              }
+              rightPage={
+                <div className="h-full flex items-center justify-center">
+                  <p className="text-gray-400 font-serif">準備中...</p>
+                </div>
+              }
+            />
           </div>
         ))}
         {/* 右側の余白 */}
