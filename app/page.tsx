@@ -83,7 +83,27 @@ export default function Home() {
         className="flex items-center gap-80 overflow-x-scroll overflow-y-hidden w-full h-screen px-16 scrollbar-hide"
         style={{ opacity: isReady ? 1 : 0 }}
       >
-        {/* 3つの本を並べる - 1つ目を自己紹介に変更 */}
+        {/* 残りの本（プレースホルダーとしてシンプルに） */}
+        {[3, 2].map((num) => (
+          <div key={num} className="flex-shrink-0 w-[min(95vw,90vh*1.7)]">
+            <BookSpread
+              leftPage={
+                <div className="h-full flex items-center justify-center">
+                  <span className="text-gray-300 font-serif text-4xl italic">
+                    Vol. {num}
+                  </span>
+                </div>
+              }
+              rightPage={
+                <div className="h-full flex items-center justify-center">
+                  <p className="text-gray-400 font-serif">準備中...</p>
+                </div>
+              }
+            />
+          </div>
+        ))}
+
+        {/* 1つ目（自己紹介） - 右端（最後）に配置 */}
         <div className="flex-shrink-0 w-[min(95vw,90vh*1.7)]">
           <BookSpread
             leftPage={
@@ -151,26 +171,6 @@ export default function Home() {
             }
           />
         </div>
-
-        {/* 残りの本（プレースホルダーとしてシンプルに） */}
-        {[2, 3].map((num) => (
-          <div key={num} className="flex-shrink-0 w-[min(95vw,90vh*1.7)]">
-            <BookSpread
-              leftPage={
-                <div className="h-full flex items-center justify-center">
-                  <span className="text-gray-300 font-serif text-4xl italic">
-                    Vol. {num}
-                  </span>
-                </div>
-              }
-              rightPage={
-                <div className="h-full flex items-center justify-center">
-                  <p className="text-gray-400 font-serif">準備中...</p>
-                </div>
-              }
-            />
-          </div>
-        ))}
         {/* 右側の余白 */}
         <div className="flex-shrink-0 w-16" />
       </div>
