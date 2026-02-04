@@ -8,3 +8,12 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* 本コンポーネント内のスクロールバー非表示 */
+.book-page-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.book-page-content::-webkit-scrollbar {
+  display: none;
+}

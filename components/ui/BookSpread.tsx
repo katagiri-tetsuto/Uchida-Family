@@ -42,17 +42,17 @@ export default function BookSpread({
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] pointer-events-none" />
 
           {/* 左ページ */}
-          <div className="flex-1 relative h-full border-r border-[#e0dacc]">
+          <div className="flex-1 relative h-full border-r border-[#e0dacc] overflow-hidden">
             {/* コンテンツエリア */}
-            <div className="relative z-10 w-full h-full p-8 md:p-14 flex flex-col">
+            <div className="absolute inset-0 z-10 p-8 md:p-14 flex flex-col overflow-hidden">
               {leftTitle && (
-                <div className="mb-6 flex justify-center">
+                <div className="mb-6 flex justify-center flex-shrink-0">
                   <h2 className="text-xl md:text-2xl font-serif text-gray-700 border-b-2 border-gray-300/50 pb-2 px-8">
                     {leftTitle}
                   </h2>
                 </div>
               )}
-              <div className="flex-1 text-gray-800 font-serif leading-loose text-sm md:text-base">
+              <div className="flex-1 text-gray-800 font-serif leading-loose text-sm md:text-base overflow-hidden">
                 {leftPage}
               </div>
             </div>
@@ -62,17 +62,17 @@ export default function BookSpread({
           </div>
 
           {/* 右ページ */}
-          <div className="flex-1 relative h-full">
+          <div className="flex-1 relative h-full overflow-hidden">
             {/* コンテンツエリア */}
-            <div className="relative z-10 w-full h-full p-8 md:p-14 flex flex-col">
+            <div className="absolute inset-0 z-10 p-8 md:p-14 flex flex-col overflow-hidden">
               {rightTitle && (
-                <div className="mb-6 flex justify-center">
+                <div className="mb-6 flex justify-center flex-shrink-0">
                   <h2 className="text-xl md:text-2xl font-serif text-gray-700 border-b-2 border-gray-300/50 pb-2 px-8">
                     {rightTitle}
                   </h2>
                 </div>
               )}
-              <div className="flex-1 text-gray-800 font-serif leading-loose text-sm md:text-base">
+              <div className="flex-1 text-gray-800 font-serif leading-loose text-sm md:text-base overflow-hidden">
                 {rightPage}
               </div>
             </div>
